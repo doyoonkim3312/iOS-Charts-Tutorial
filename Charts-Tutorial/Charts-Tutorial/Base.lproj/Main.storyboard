@@ -1,24 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Charts_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gNq-kf-ASB" userLabel="lineChartView" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="38" y="54" width="346" height="199"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qws-2e-PJW" userLabel="piChartView" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="30" y="384" width="354" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IHZ-qP-6oW" userLabel="barChartView" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="30" y="693" width="354" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qws-2e-PJW" firstAttribute="top" secondItem="gNq-kf-ASB" secondAttribute="bottom" constant="20" id="4dP-5t-cE3"/>
+                            <constraint firstItem="qws-2e-PJW" firstAttribute="top" secondItem="gNq-kf-ASB" secondAttribute="bottom" constant="20" id="5xt-HB-MRq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IHZ-qP-6oW" secondAttribute="trailing" constant="10" id="6GC-q3-wvy"/>
+                            <constraint firstItem="gNq-kf-ASB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="18" id="Bxk-pD-c2n"/>
+                            <constraint firstItem="IHZ-qP-6oW" firstAttribute="top" secondItem="qws-2e-PJW" secondAttribute="bottom" constant="20" id="DCc-aY-8Iv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qws-2e-PJW" secondAttribute="trailing" constant="10" id="FPq-X6-jWN"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="IHZ-qP-6oW" secondAttribute="bottom" constant="10" id="HVG-sp-jKI"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="qws-2e-PJW" secondAttribute="bottom" constant="20" id="HzO-le-tih"/>
+                            <constraint firstItem="qws-2e-PJW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JkH-sQ-sW0"/>
+                            <constraint firstItem="qws-2e-PJW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="Ls8-Co-Kyd"/>
+                            <constraint firstItem="gNq-kf-ASB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="10" id="TaI-ji-gAK"/>
+                            <constraint firstItem="IHZ-qP-6oW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="V2Q-uX-8dC"/>
+                            <constraint firstItem="gNq-kf-ASB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qF0-EI-yRP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gNq-kf-ASB" secondAttribute="trailing" constant="10" id="uJI-7X-asF"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="barChartView" destination="IHZ-qP-6oW" id="6pJ-Sz-TwQ"/>
+                        <outlet property="lineChartView" destination="gNq-kf-ASB" id="hhJ-Mr-sfb"/>
+                        <outlet property="piChartView" destination="qws-2e-PJW" id="qcE-u9-khQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="95.758928571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
